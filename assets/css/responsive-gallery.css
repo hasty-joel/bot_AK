@@ -1,0 +1,67 @@
+:root {
+    --black-100: #000000;     /* Jet Black */
+    --black-90: #1a1a1ad2;       /* Charcoal Black */
+    --black-80: #333333;       /* Onyx */
+    --gold-100: #FFD700;       /* Pure Gold */
+    --gold-90: #D4AF37;        /* Antique Gold */
+    --gold-80: #BFA046;        /* Soft Gold */
+    --blush: #F4C2C2;
+    --ivory: #FFFFF0;
+    --emerald: #004D43;
+}@media (max-width:980px){
+    .nav-info-links{
+        flex-direction: column;
+        min-height: 4em;
+    }
+    .ham-menu{
+        margin-right: 1.5em;
+        transition: ease .3s;
+        display: block;
+        align-self: center;
+    }
+    header{
+        width: 100%;
+    }
+    header h{
+        width: auto;
+        font-size: 1.6em;
+    }
+    header ul{
+        display: none;
+    }
+    header ul.active{
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        flex-direction: column;
+        position: absolute;
+        background: linear-gradient(to bottom right,var(--emerald),transparent);
+        border-radius: 20px;
+        border: solid 1px var(--gold-90);
+        width: 8em;
+        height: 15em;
+        padding: 0;
+    }
+
+    .ham-menu:hover{
+        transform: rotateZ(180deg);
+    }
+    .gallery h{
+        font-size: 2em;
+    }
+    .gallery p{
+        font-size: 1.2em;
+    }
+
+    /*gallery item img size*/
+
+    .gallery-item{
+        max-width: 280px;
+        min-height: 220px;
+    }
+    /*Button in gallery to more*/
+    .galllery a{
+        padding: 5px 15px;
+    }
+
+}

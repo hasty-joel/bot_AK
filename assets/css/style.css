@@ -1,0 +1,479 @@
+:root {
+    --black-100: #000000;     /* Jet Black */
+    --black-90: #1a1a1ad2;       /* Charcoal Black */
+    --black-80: #333333;       /* Onyx */
+    --gold-100: #FFD700;       /* Pure Gold */
+    --gold-90: #D4AF37;        /* Antique Gold */
+    --gold-80: #BFA046;        /* Soft Gold */
+    --blush: #F4C2C2;
+    --ivory: #FFFFF0;
+    --emerald: #004D43;
+}
+*{
+    margin: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nav-info-links{
+    position: relative;
+    background: rgba(0, 0, 0, 0.795);
+    margin-top: 0;
+    width: 100%;
+    min-height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.nav-info-links a{
+    text-decoration: none;
+    color: var(--gold-90);
+}
+.nav-info-links a:hover{
+    color: var(--gold-100);
+    font-size: 1.03em;
+    transition: ease-in-out 0.3s;
+}
+header{
+    position: relative;
+    width: 100%;
+    height: 5em;
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(to top,var(--emerald) ,var(--black-80));
+    justify-content: space-between;
+    border-bottom: solid gold 2px;
+}
+header h{
+    color: var(--gold-100);
+    font-size: 2em;
+    margin: auto 1em;
+    font-weight: 900;
+}
+header ul{
+    width: 40%;
+    margin: auto 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    font-size: 1.3em;
+}
+header ul li a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--ivory);
+}
+#home{
+    color: var(--gold-100);
+}
+header ul li a:hover{
+    text-decoration: underline;
+    color: #BFA046;
+    font-size: 1.1em;
+    transition: ease-in-out .4s;
+}
+
+
+.ham-menu{
+    margin-right: auto;
+    display: none;
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+.ham-menu span{
+    width: 100%;
+    height: 5px;
+    background: gold;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+.ham-menu span:nth-child(1){
+    top: 25%;
+}
+.ham-menu span:nth-child(3){
+    top: 75%;
+}
+.ham-menu.active span:nth-child(1){
+    top: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+.ham-menu.ham-menu.active span:nth-child(2){
+    opacity: 0;
+}
+.ham-menu.ham-menu.active span:nth-child(3){
+    top: 50%;
+    transform: translate(-50%, 50%) rotate(-45deg);
+}
+
+.body_main{
+    width: 100%;
+    background-image: url("../images/wallpaper19.jpg");
+    background-size: cover;
+}
+.body_intro{
+    border-bottom: 1px solid var(--gold-80);
+    width: 100%;
+    height: 20em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to bottom right, var(--black-100), rgba(0, 0, 0, 0.164));
+}
+.body_intro h1{
+    color: var(--gold-100);
+    font-size: 2.8em;
+}
+.body_intro h2{
+    color: var(--ivory);
+    margin-top: 1em;
+}
+
+.body_intro a{
+    color: var(--black-100);
+    background: var(--gold-100);
+    width: fit-content;
+    align-self: center;
+    padding: 15px 11px;
+    border-radius: 5px;
+    margin: 1em;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.body_intro a:hover{
+    background: var(--gold-90);
+    color: var(--black-80);
+    transition: ease-in-out .3s;
+}
+
+.gallery{
+    padding: 1em 0;
+    width: 100%;
+    text-align: center;
+    min-height: 45em;
+    background: linear-gradient(to bottom right, var(--emerald), var(--black-100));
+    border-bottom: solid 2px var(--gold-90);
+}
+.gallery h{
+    color: var(--gold-90);
+    font-size: 2.3em;
+    font-weight: 700;
+    padding-top: 1em;
+}
+.gallery p{
+    color: var(--blush);
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+
+/* Gallery Grid */
+.gallery_images{
+    margin: 1.2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Gallery Items with sliding info */
+.gallery-item {
+    position: relative;
+    max-width: 350px;
+    min-height: 300px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--black-80);
+    border-radius: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* Info overlay panel */
+
+.info-slide-up {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    color: var(--gold-100);
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid var(--gold-90);
+    border-radius: 0 0 10px 10px;
+}
+
+/* On hover - slide the info panel up */
+.gallery-item:hover .info-slide-up {
+    transform: translateY(0);
+}
+
+/* Zoom image on hover */
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.info-slide-up h3 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.info-slide-up h4{
+    font-size: 1em;
+    font-weight: 300;
+    color: var(--blush);
+}
+.info-slide-up p {
+    margin: 0;
+    color: var(--ivory);
+}
+
+.gallery a{
+    margin-top: 2em;
+    padding: 10px 20px;
+    color: var(--black-90);
+    text-decoration: none;
+    background: var(--gold-100);
+    border-radius: 10px;
+    font-weight: 600;
+}
+.gallery a:hover{
+    color: var(--gold-100);
+    background: var(--black-90);
+    transition: ease .3s;
+}
+
+/* About us */
+.about_us{
+    padding: 1em 0;
+    width: 100%;
+    min-height: 20em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: linear-gradient(to bottom left, var(--black-100), var(--emerald));
+    border-bottom:solid 2px var(--gold-90);
+}
+.about_us h1{
+    padding: 1em 0;
+    color: var(--gold-90);
+    font-size: 2.3em;
+    font-weight: 700;
+}
+.about_us .p{
+    width: 80%;
+    margin: 0 auto;
+}
+.about_us p{
+    color: var(--blush);
+    font-size: 1.4em;
+}
+/* image in about us*/
+.gallery-item-about{
+    position: relative;
+    max-width: 230px;
+    min-height: 170px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--black-80);
+    border-radius: 10px;
+    align-self: center;
+    margin: 1em;
+    }
+    
+.gallery-item-about img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    align-self: center;
+}  
+
+.gallery-item-about:hover .info-slide-up {
+    transform: translateY(0);
+}
+
+/* Zoom image on hover */
+.gallery-item-about:hover img {
+    transform: scale(1.05);
+}
+
+.contact{
+    height: 35em;
+    padding: 1em 0;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(to top left, var(--black-100), var(--emerald));
+    border-bottom: solid 2px var(--gold-100);
+}
+
+.contact h2{
+    color: var(--gold-90);
+    margin: 2em 0;
+    font-size: 2.3em;
+}
+/* Contact Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  form input, form textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--gold-80);
+    background: var(--black-80);
+    color: var(--ivory);
+    border-radius: 4px;
+    font-size: 1rem;
+    resize: vertical;
+    text-align: center;
+    box-shadow: 0 0 10px var(--gold-80);
+  }
+  
+  form input::placeholder,
+  form textarea::placeholder {
+    color: var(--gold-80);
+  }
+  
+  form button{
+    background: var(--gold-100);
+    color: var(--black-100);
+    padding: 0.75rem;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  
+  form button:hover {
+    background: var(--blush);
+  }
+/*Team*/
+.team{
+    background: linear-gradient(to bottom left, var(--emerald), rgb(3, 3, 26));
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    min-height: 30em;
+    padding:1em 0;
+    width: 100%;
+    border-bottom:solid 3px var(--gold-80);
+}
+.team .text{
+    margin-bottom: 1.5em;
+}
+.team .text h{
+    text-transform: capitalize;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--gold-90);
+
+}
+.team_img{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0;
+    overflow: hidden;
+}
+.team .team_img img{
+    cursor: pointer;
+    min-height: 20em;
+    max-width: 20em;
+    border-radius: 10px;
+
+}
+.team_img img:hover{
+    transform: scale(1.05);
+    transition: ease-in-out .3s;
+}
+.team .team_img h{
+    font-size: 1.5em;
+    color: var(--gold-100);
+    font-weight: 600;
+    padding: 1em 0;
+}
+.team_img h:hover{
+    cursor: pointer;
+    color: var(--blush);
+    transition: ease-in-out .3s;
+}
+
+
+  /* Footer styling */
+  .footer{
+    position: relative;
+    padding: 20px 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--black-100);
+    width: 100%;
+}
+.footer ul{
+    justify-content: space-evenly;
+    display: flex;
+    width: 15em;
+    height: auto;
+}
+.footer ul a i{
+    color: gold;
+    background: #000;
+    font-size: large;
+    padding: 6px 6px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px;
+}
+.footer  ul a i:hover{
+    color: #000;
+    transition: .3s;
+    background: gold;
+}
+.footer h{
+    font-weight: 400;
+    font-size: large;
+    padding: 10px 2px;
+    color: gold;
+    text-align: center;
+}
+.footer h a{
+    text-decoration: none;
+    color: gold;
+}
+.footer h a:hover{
+    text-decoration: underline;
+    color: white;
+    transition: .3s;
+}
+
+
