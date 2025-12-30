@@ -16,3 +16,11 @@ form.addEventListener('submit', e => {
   alert('Thank you for reaching out to Laceon_Ak_Stiches! We will get back to you soon.');
   form.reset();
 });
+
+// cart 
+let count = 0;
+
+function addToCart() {
+  count++;
+  document.getElementById('cart-count').textContent = count;
+}

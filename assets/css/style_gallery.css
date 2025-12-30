@@ -36,6 +36,16 @@ body{
     font-size: 1.03em;
     transition: ease-in-out 0.3s;
 }
+/* cart */
+.cart{
+    font-size: x-large;
+    align-self: center;
+}
+#cart-count{
+    color: beige;
+}
+
+
 header{
     position: relative;
     width: 100%;
