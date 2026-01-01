@@ -46,12 +46,17 @@ body{
     color: beige;
 }
 .button-cart{
-    width: 100%;
+    width: 30%;
     color: beige;
-    position: relative;
+    position: absolute;
     border: none;
     z-index: 10;
-    background: darkslategray;
+    background: darkslategrey;
+    border-radius:10px;
+    left: 5px;
+    top: 5px;
+    box-shadow: 0 2px 5px var(--gold-90);
+    padding: 5px 2px;
 }
 
 
