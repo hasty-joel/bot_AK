@@ -153,16 +153,26 @@ header .logo{
    HERO SECTION
 ========================= */
 .body_main {
-  min-height: 90vh;
+  height: 20em;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   border-bottom: 1px solid var(--gold);
+  width: 100%;
+  background-image: url("../images/wallpaper19.jpg");
+  background-size: cover;
 }
-
-.body_intro {
-  max-width: 720px;
+.body_intro{
+    border-bottom: 1px solid var(--gold-80);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to bottom right, var(--black-100), rgba(0, 0, 0, 0.164));
 }
 
 .body_intro h1 {
@@ -177,11 +187,13 @@ header .logo{
 }
 
 .body_intro a {
-  border: 1px solid var(--gold);
+  border: 1px solid var(--gold-80);
   padding: 10px 30px;
-  color: var(--gold);
+  color: var(--gold-80);
   display: inline-block;
   border-radius: 5px;
+  width: 20%;
+  align-self: center;
 }
 
 .body_intro a:hover{
